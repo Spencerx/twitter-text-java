@@ -26,12 +26,12 @@ public class Validator {
   }
 
   public boolean isValidTweet(String text) {
-    if (text == null || text.isEmpty()) {
+    if (text == null || text.length() == 0) {
       return false;
     }
 
     for (char c : text.toCharArray()) {
-      if (c == '\uFFFE' || c == '\uuFEFF' ||   // BOM
+      if (c == '\uFFFE' || c == '\uFEFF' ||   // BOM
           c == '\uFFFF' ||                     // Special
           (c >= '\u202A' && c <= '\u202E')) {  // Direction change
         return false;
